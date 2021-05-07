@@ -1,0 +1,42 @@
+
+ViewData["Movie"] = movie;   //Assigns view data to an existing view.
+return View();
+
+//Seems nice but requires casting the ViewData["Movie"] data to
+//@( ((Move) ViewData["Movie"]).Name)
+
+//You can als you ViewBag.Move = movie.
+and then access it at ViewBag.RandomMovie but that could cause problems too.
+    i.e. The magic property.
+:(
+
+Better to pass stuff to View();
+
+And access it at @Model
+
+The View method does this:
+
+it takes viewResult.ViewData.Model
+
+and assigns the object (say, "movie") to .Model
+
+
+
+1. How did he get his to run.
+2. Why am I getting all of these errors in the repositories!
+3. Why am I getting those specific error!
+4. What do those error mean!
+
+
+
+ef core
+1. What is the Idenity insert issue.
+2. Why am I getting the Samurai but then when 
+    ...I iterate over the Quotes it just gives me blanks.
+3. Why wouldn't it let me use ".Include"
+
+
+1. yield.
+2. Identity key
+
+Work on the views/forms.

@@ -1,0 +1,15 @@
+jobs:
+  build:
+    runs-on: macOS-10.15
+    steps:
+      - uses: actions/checkout@v2
+      - run: dotnet build
+name: ci-pipeline
+
+on: push
+# macOS Catalina Version 10.15.7
+# macOS-latest OR macOS-10.15
+
+# test: xunit
+# Analyze: Sonarcloud
+# Connect your project to Sonarcloud.
