@@ -24,7 +24,7 @@ namespace PizzaBox.Client
             services.AddScoped<UnitOfWork>();
             services.AddDbContext<PizzaBoxContext>(options => 
             {
-                options.UseNpgsql(Configuration.GetConnectionString("pgsql"));
+                options.UseSqlServer(Configuration.GetConnectionString("mssql"));
                 
                 // ^--The connection string is in the appsetting.json
                 //  ^-- This is the same code that we wrote in OnConfiguring 

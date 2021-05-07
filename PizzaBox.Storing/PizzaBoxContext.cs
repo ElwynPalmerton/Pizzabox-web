@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PizzaBox.Domain.Abstracts;
 using PizzaBox.Domain.Models;
 
 namespace PizzaBox.Storage
@@ -18,6 +19,7 @@ namespace PizzaBox.Storage
             builder.Entity<Crust>().HasKey(e => e.EntityId);
             builder.Entity<Size>().HasKey(e => e.EntityId);
             builder.Entity<Topping>().HasKey(e => e.EntityId);
+            // builder.Entity<APizza>().HasKey(e => e.EntityId);
             
             OnModelSeeding(builder);
         }
@@ -27,8 +29,8 @@ namespace PizzaBox.Storage
 
             builder.Entity<Size>().HasData(new Size[]{
                 new Size() {EntityId = 1, Name = "Small"},
-                new Size() {EntityId = 1, Name = "Medium"},
-                new Size() {EntityId = 1, Name = "Large"},
+                new Size() {EntityId = 2, Name = "Medium"},
+                new Size() {EntityId = 3, Name = "Large"},
             });
             builder.Entity<Crust>().HasData(new Crust[]{
                 new Crust() {
@@ -36,11 +38,11 @@ namespace PizzaBox.Storage
                     Name="Thin",
                 },
                 new Crust() {
-                    EntityId=1,
+                    EntityId=2,
                     Name="Medium",
                 },
                 new Crust() {
-                    EntityId=1,
+                    EntityId=3,
                     Name="Large",
                 }
             });
