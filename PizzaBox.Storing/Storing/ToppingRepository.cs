@@ -30,7 +30,7 @@ namespace PizzaBox.Storing.Repositories
             // return _context.Toppings.FirstOrDefault(t => t.Name == "Pepperoni").First();
             throw new NotImplementedException();
         }
-        public bool Insert()
+        public bool Insert(Topping t)
         {
             throw new System.NotImplementedException();
         }

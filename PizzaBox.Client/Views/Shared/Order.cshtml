@@ -1,59 +1,62 @@
 @model PizzaBox.Client.Models.OrderViewModel
 
-<h2>From the view</h2>
+<div class="p-2"></div>
+<h2>Please Make an Order</h2>
+<div class="p-2"></div>
 
-@* Razor View Engine *@
+<form action="/order/create" method="post"> 
 
-
-
-@* HTML Way *@
-<form action="/order" method="post"> 
     @foreach(var item in Model.Sizes)
     {
         <label for="@item">@item</label>
-        <input type="radio" id="" name="selectedsize" value="@item">
+        @Html.RadioButtonFor(m => m.SelectedSize, @item);
         
     }
+    @* @Html.EditorFor(m => m.SelectedSize) <br /> *@
+    @Html.ValidationMessageFor(m => m.SelectedSize, "", new { @class = "text-danger" })
+    <div class="p-3"></div>
+
     @foreach(var item in Model.Crusts)
     {
         <label for="@item">@item</label>
-        <input type="radio" id="" name="selectedcrust" value="@item">
+        @* <input type="radio" id="" name="selectedcrust" value="@item"> *@
+        @Html.RadioButtonFor(m => m.SelectedCrust, @item);
     }
-    <button type="submit">Select crust</button>
+    @Html.ValidationMessageFor(m => m.SelectedCrust, "", new { @class = "text-danger" })
+    <div class="p-3"></div>
+
+
+
+
+    @foreach(var item in Model.Toppings)
+    {
+        <label for="@item">@item</label>
+        <input type="checkbox" id="" name="selectedtoppings" value="@item">
+    
+        @* @Html.CheckBoxFor(m => m.SelectedToppings, @item); *@
+    }
+    @* @Html.ValidationMessageFor(m => m.SelectedToppings, "", new { @class = "text-danger" }) *@
+
+    <span asp-validation-for="SelectedToppings"></span>
+
+    <div class="p-3"></div>
+    <button type="submit" class="btn btn-primary">Order Pizza</button>
 </form>
 
 
-@* 
-    The asp-for="SelectedCrust" is what ties the server side validation rules to the inputs.
- *@
 
 
-@* The Tag way *@
-
-@* <form asp-controller="order" method="post">
-    @foreach (var item in Model.Sizes)
-    {
-        <label asp-for="@item">@item</label>
-        <input type="radio" asp-for="@Model.SelectedSize" value="@item">
-    }
-    <button type="submit">Select Size</button>
-</form>  *@
 
 
-@* HTML HELPER WAY *@
-@*  
-@using (Html.BeginForm("", "order", null, FormMethod.Post))
-{
-    @foreach (var item in Model.Sizes)
-    {
-        @Html.LabelFor(m => m.SelectedSize);
-        @Html.RadioButtonFor(m => m.SelectedSize, @item);
-    }
-    <button type="submit">Select Size</button>
-}  *@
+
+@* ^----HTML Way *@
 
 
-@* The model item passed into the ViewDataDictionary is of type 
-'Microsoft.AspNetCore.Mvc.ViewFeatures.DynamicViewData', but
- this ViewDataDictionary instance requires a model item of
-  type 'PizzaBox.Client.Models.OrderViewModel'. *@
+
+@* If I do this then the label for selectedCrust/size/topping needs to be factored out *@
+@* in the OrderViewModel, I think *@
+@* Html.Partial("_NavBar", PizzaBox.Client.Models.OrderViewModel); *@
+
+
+@* Notes on validation tag helpers *@
+@* https://docs.microsoft.com/en-us/aspnet/core/mvc/views/working-with-forms?view=aspnetcore-5.0* *@

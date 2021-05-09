@@ -28,7 +28,7 @@ namespace PizzaBox.Storing.Repositories
             //I need this in the other repositories too.
         }
 
-        public bool Insert()
+        public bool Insert(Crust c)
         {
             throw new System.NotImplementedException();
         }

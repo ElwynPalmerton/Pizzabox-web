@@ -23,6 +23,7 @@ namespace PizzaBox.Storage
             Crusts = new CrustRepository(context);
             Sizes = new SizeRepository(context);
             Toppings = new ToppingRepository(context);
+            // Customers = new CustomerRepository(context);
 
         }
 

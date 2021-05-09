@@ -1,0 +1,56 @@
+@model PizzaBox.Client.Models.CustomerViewModel
+
+
+<div class="p-3"></div>
+<h2>Customer Information</h2>
+<p>Please enter customer data so that we can take your order!</p>
+
+<div class="p-1"></div>
+
+
+<form action="/customer/create" method="post"> 
+   <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+      @* <input 
+      type="text"
+        class="form-control" 
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" 
+        name="CustomerName"
+      > *@
+      @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" })
+          @* @Html.ValidationMessageFor(m => m.SelectedCrust, "", new { @class = "text-danger" }) *@
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Phone Number</span>
+      @* <input 
+        type="text" 
+        class="form-control" 
+        aria-label="Sizing example input" 
+        aria-describedby="inputGroup-sizing-default" 
+        name="PhoneNumber"
+      > *@
+          @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+    </div>
+
+     <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+      @* <input 
+        type="text" 
+        class="form-control" 
+        aria-label="Sizing example input" 
+        aria-describedby="inputGroup-sizing-default"
+        name="Address"
+      > *@
+      @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+    </div>
+
+    
+
+    @* <div class="p-1"></div> *@
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+@* <a asp-controller="customer">Make an order - index.cshtml</a> *@

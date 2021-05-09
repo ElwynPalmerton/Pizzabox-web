@@ -7,7 +7,7 @@ namespace PizzaBox.Domain.Interfaces
     {
         IEnumerable<T> Select(Func<T, bool> filter);
 
-        bool Insert();
+        bool Insert(T t);
 
         T Update();
 

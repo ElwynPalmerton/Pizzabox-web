@@ -2,7 +2,7 @@
 
 namespace PizzaBox.Storing.Migrations
 {
-    public partial class initial : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,6 +17,21 @@ namespace PizzaBox.Storing.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Crusts", x => x.EntityId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Customer",
+                columns: table => new
+                {
+                    EntityId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customer", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
@@ -51,9 +66,14 @@ namespace PizzaBox.Storing.Migrations
                 values: new object[,]
                 {
                     { 1L, "Thin" },
-                    { 2L, "Medium" },
-                    { 3L, "Large" }
+                    { 2L, "Thick" },
+                    { 3L, "Stuffed" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Customer",
+                columns: new[] { "EntityId", "Address", "Name", "PhoneNumber" },
+                values: new object[] { 1L, "100 Uncle John Street", "Uncle John", "888-888-JOHN" });
 
             migrationBuilder.InsertData(
                 table: "Sizes",
@@ -85,6 +105,9 @@ namespace PizzaBox.Storing.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Crusts");
+
+            migrationBuilder.DropTable(
+                name: "Customer");
 
             migrationBuilder.DropTable(
                 name: "Sizes");

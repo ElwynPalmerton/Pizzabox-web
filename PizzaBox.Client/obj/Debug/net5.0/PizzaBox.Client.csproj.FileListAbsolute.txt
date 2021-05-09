@@ -41,7 +41,6 @@
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/PizzaBox.Client.pdb
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/PizzaBox.Client.genruntimeconfig.cache
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/Order.cshtml.g.cs
-/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/Test.cshtml.g.cs
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/Checkout.cshtml.g.cs
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -78,3 +77,11 @@
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/bin/Debug/net5.0/Humanizer.dll
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/AddPizza.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/Cart.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/CustomerAccount.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/SelectStore.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/Test.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/Customer.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/StorePortal.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Partials/_navbar.cshtml.g.cs

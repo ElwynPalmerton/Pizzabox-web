@@ -24,7 +24,7 @@ namespace PizzaBox.Storage.Repositories
             throw new System.NotImplementedException();
         }
 
-        public bool Insert()
+        public bool Insert(Order o)
         {
             throw new System.NotImplementedException();
         }

@@ -41,12 +41,42 @@ namespace PizzaBox.Storing.Migrations
                         new
                         {
                             EntityId = 2L,
-                            Name = "Medium"
+                            Name = "Thick"
                         },
                         new
                         {
                             EntityId = 3L,
-                            Name = "Large"
+                            Name = "Stuffed"
+                        });
+                });
+
+            modelBuilder.Entity("PizzaBox.Domain.Models.Customer", b =>
+                {
+                    b.Property<long>("EntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EntityId");
+
+                    b.ToTable("Customer");
+
+                    b.HasData(
+                        new
+                        {
+                            EntityId = 1L,
+                            Address = "100 Uncle John Street",
+                            Name = "Uncle John",
+                            PhoneNumber = "888-888-JOHN"
                         });
                 });
 

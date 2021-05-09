@@ -1,0 +1,35 @@
+
+@* 
+    The asp-for="SelectedCrust" is what ties the server side validation rules to the inputs.
+ *@
+
+
+@* The Tag way *@
+
+@* <form asp-controller="order" method="post">
+    @foreach (var item in Model.Sizes)
+    {
+        <label asp-for="@item">@item</label>
+        <input type="radio" asp-for="@Model.SelectedSize" value="@item">
+    }
+    <button type="submit">Select Size</button>
+</form>  *@
+
+
+@* HTML HELPER WAY *@
+@*  
+@using (Html.BeginForm("", "order", null, FormMethod.Post))
+{
+    @foreach (var item in Model.Sizes)
+    {
+        @Html.LabelFor(m => m.SelectedSize);
+        @Html.RadioButtonFor(m => m.SelectedSize, @item);
+    }
+    <button type="submit">Select Size</button>
+}  *@
+
+
+@* The model item passed into the ViewDataDictionary is of type 
+'Microsoft.AspNetCore.Mvc.ViewFeatures.DynamicViewData', but
+ this ViewDataDictionary instance requires a model item of
+  type 'PizzaBox.Client.Models.OrderViewModel'. *@

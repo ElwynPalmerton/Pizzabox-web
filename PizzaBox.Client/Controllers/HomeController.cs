@@ -21,7 +21,7 @@ namespace PizzaBox.Client.Controllers
 
         private readonly UnitOfWork _unitOfWork;
 
-     
+       
         public HomeController(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -30,15 +30,15 @@ namespace PizzaBox.Client.Controllers
         [HttpGet]       //This is called an action filter.  action for {url}/Home/Index
         public IActionResult Index()
         {
-            //Returns the first page
-            //"Click here to make an order"
-            // return View("index");
-            //I think that Fred might have moved this around
+            // Returns the first page
+            // "Click here to make an order"
+            return View("index");
+            // I think that Fred might have moved this around
 
-            var order = new OrderViewModel();
-
-            order.Load(_unitOfWork);
-            return View("order", order);
+//             var order = new OrderViewModel();
+// 
+//             order.Load(_unitOfWork);
+//             return View("order", order);
         
 
         }

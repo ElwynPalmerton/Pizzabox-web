@@ -29,7 +29,7 @@ namespace PizzaBox.Storing.Repositories
             return _context.Sizes;     //Still need ef Core.
             throw new NotImplementedException();
         }
-        public bool Insert()
+        public bool Insert(Size s)
         {
             throw new System.NotImplementedException();
         }

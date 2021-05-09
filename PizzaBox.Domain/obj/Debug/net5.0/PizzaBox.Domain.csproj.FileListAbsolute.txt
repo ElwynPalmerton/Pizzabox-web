@@ -12,3 +12,4 @@
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Domain/bin/Debug/net5.0/PizzaBox.Domain.runtimeconfig.json
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Domain/bin/Debug/net5.0/PizzaBox.Domain.runtimeconfig.dev.json
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.genruntimeconfig.cache
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.csprojAssemblyReference.cache

@@ -8,19 +8,19 @@ using PizzaBox.Domain.Models;
 namespace PizzaBox.Domain.Abstracts{
 
 
-  public abstract class AComponent : AModel 
+  public abstract class AComponent : Entity
   {
     public string Name {get; set;}
-    public decimal Price {get; set;}
+    // public decimal Price {get; set;}
 
-    public override string ToString()
-    {
-      return Name;
-    }
+      public override string ToString()
+      {
+          return $"{Name}";
+      }
 
-    public string MenuString()
-    {
-      return $"{Name} - ${Price}";
-    }
+    // public string MenuString()
+    // {
+    //   return $"{Name} - ${Price}";
+    // }
   }
 }

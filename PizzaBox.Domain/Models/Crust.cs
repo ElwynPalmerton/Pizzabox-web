@@ -5,19 +5,8 @@ using PizzaBox.Domain.Abstracts;
 
 namespace PizzaBox.Domain.Models
 {
-    public class Crust : Entity
+    public class Crust : AComponent
     {
 
-        public string Name {get; set;}
-
-        // public ICollection<APizza> Pizzas {get; set;}
-
-        public override string ToString()
-        {
-            return $"{Name}";
-        }
-
-        // sopdfhjds
-        //Add these properties to the other components...
     }
 }

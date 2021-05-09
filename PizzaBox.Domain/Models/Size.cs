@@ -5,11 +5,8 @@ using PizzaBox.Domain.Abstracts;
 
 namespace PizzaBox.Domain.Models
 {
-    public class Size : Entity
+    public class Size : AComponent
     {
-        public string Name {get; set;}
-        
-
 
     }
 }

@@ -15619,6 +15619,11 @@
   "RootNamespace": "PizzaBox.Client",
   "Documents": [
     {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/Customer.cshtml",
+      "TargetPath": "Views\\Shared\\Customer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -15629,8 +15634,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/AddPizza.cshtml",
+      "TargetPath": "Views\\Shared\\AddPizza.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/SelectStore.cshtml",
+      "TargetPath": "Views\\Shared\\SelectStore.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/Checkout.cshtml",
       "TargetPath": "Views\\Shared\\Checkout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Partials/_navbar.cshtml",
+      "TargetPath": "Views\\Partials\\_navbar.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15644,8 +15664,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/Cart.cshtml",
+      "TargetPath": "Views\\Shared\\Cart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/StorePortal.cshtml",
+      "TargetPath": "Views\\Shared\\StorePortal.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/CustomerAccount.cshtml",
+      "TargetPath": "Views\\Shared\\CustomerAccount.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -10,6 +10,7 @@ namespace PizzaBox.Storage
         public DbSet<Crust> Crusts {get; set;}
         public DbSet<Size> Sizes {get; set;}
         public DbSet<Topping> Toppings {get; set;}
+        public DbSet<Customer> Customers {get; set;}
         public PizzaBoxContext(DbContextOptions options) : base(options)
         {
                 
@@ -19,6 +20,7 @@ namespace PizzaBox.Storage
             builder.Entity<Crust>().HasKey(e => e.EntityId);
             builder.Entity<Size>().HasKey(e => e.EntityId);
             builder.Entity<Topping>().HasKey(e => e.EntityId);
+            builder.Entity<Customer>().HasKey(e => e.EntityId);
             // builder.Entity<APizza>().HasKey(e => e.EntityId);
             
             OnModelSeeding(builder);
@@ -26,6 +28,15 @@ namespace PizzaBox.Storage
 
         private void OnModelSeeding(ModelBuilder builder)
         {
+            builder.Entity<Customer>().HasData(new Customer[]
+            {
+                new Customer(){
+                    EntityId = 1, 
+                    Name = "Uncle John",
+                    Address = "100 Uncle John Street",
+                    PhoneNumber = "888-888-JOHN"
+                }
+            });
 
             builder.Entity<Size>().HasData(new Size[]{
                 new Size() {EntityId = 1, Name = "Small"},
@@ -39,11 +50,11 @@ namespace PizzaBox.Storage
                 },
                 new Crust() {
                     EntityId=2,
-                    Name="Medium",
+                    Name="Thick",
                 },
                 new Crust() {
                     EntityId=3,
-                    Name="Large",
+                    Name="Stuffed",
                 }
             });
 
@@ -85,29 +96,3 @@ namespace PizzaBox.Storage
     }
 }
 
-
-
-
-
-
-//        private readonly IConfiguration _config;
-//        public PizzaBoxContext(DbContextOptions options) : base (options)
-//        {
-//            _config = Configuration.Build();
-//        }
-//
-//        protected override void OnConfiguring(DbContextOptionsBuilder builder)
-//        {
-//            builder.useSQlServer(_config["secret"]);
-//
-//        }
-
-
-//Entity goes in the domain/abstracts.
-//
-// namespace PizzaBox.Domain.Models
-// public absttract class Entity
-// {
-//     public long EntityId
-// }
-//Add the "inheritance" tot he domain classes topping, crust, size.
