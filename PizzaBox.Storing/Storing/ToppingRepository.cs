@@ -26,9 +26,9 @@ namespace PizzaBox.Storing.Repositories
         // public IEnumerable<Topping> Select(ToppingDelegate filter)
        public IEnumerable<Topping> Select(Func<Topping, bool> filter)
         {
-            return _context.Toppings;
-            // return _context.Toppings.FirstOrDefault(t => t.Name == "Pepperoni").First();
-            throw new NotImplementedException();
+            
+            return _context.Toppings.Where(filter);
+
         }
         public bool Insert(Topping t)
         {

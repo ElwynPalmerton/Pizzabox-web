@@ -9,37 +9,38 @@ namespace PizzaBox.Client.Controllers
 {
 
     [Route("[controller]/[action]")]
-    public class CheckoutController : Controller
+    public class FindCustomerController : Controller
     {
         private readonly UnitOfWork _unitOfWork;
 
-        public CheckoutController(UnitOfWork unitOfWork)
+        public FindCustomerController(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
+
 
         [HttpGet]
         public IActionResult Index ()
         {
             //See order Controller...?
-            return View("checkout");
+            return View("findcustomer");
         }
 
         
         [HttpGet]
         [HttpPost]
         // [ValidateAntiForgeryToken]
-        public IActionResult Create ()   
-        {   
+        public IActionResult Create ()   //CustomerViewModel order  
+        {   //The form as posted is "Model Bound to the OrderViewModel order"
 
-            ViewBag.title = "CheckoutController - Create / Post";
-            
+            ViewBag.title = "Find Customer Controller - Create / Post";
             return View("Test");
-
 //             if (ModelState.IsValid)
 //             {
 //                  return RedirectToRoute("order");   // the customer id as a parameter.
 //             }
+// 
+//             //*https://techfunda.com/howto/235/redirect-user-to-another-route-url
 // 
 //             return View("CustomerInfo");
           

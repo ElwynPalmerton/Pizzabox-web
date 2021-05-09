@@ -26,8 +26,8 @@ namespace PizzaBox.Storing.Repositories
 
             public IEnumerable<Size> Select(Func<Size, bool> filter)
         {   
-            return _context.Sizes;     //Still need ef Core.
-            throw new NotImplementedException();
+         
+            return _context.Sizes.Where(filter);
         }
         public bool Insert(Size s)
         {

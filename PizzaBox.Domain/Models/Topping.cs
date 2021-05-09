@@ -7,6 +7,7 @@ namespace PizzaBox.Domain.Models
 {
     public class Topping : AComponent
     {
+        public List<APizza> Pizzas {get; set;}
 
         public override string ToString()
         {

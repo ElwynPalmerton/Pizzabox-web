@@ -3,6 +3,7 @@ using PizzaBox.Client.Models;
 using sc = System.Console;
 using PizzaBox.Storage;
 using System.Linq;
+using PizzaBox.Domain.Models;
 
 
 namespace PizzaBox.Client.Controllers
@@ -38,23 +39,30 @@ namespace PizzaBox.Client.Controllers
         // [ValidateAntiForgeryToken]
         public IActionResult Create (CustomerViewModel customer) 
         {
+            //Send the Customer to the Order Controller...?
+                //Just pass as an argument for now...?
+            //Add the data Validation.
 
-            ViewBag.title = $"CustomerInfoController {customer.CustomerName} - {customer.PhoneNumber} - {customer.Address}";
+            ViewBag.title = customer.ToString();
+
+
+            var newCustomer = new Customer(customer.CustomerName, customer.Address, customer.PhoneNumber);
+            _unitOfWork.Customers.Insert(newCustomer);
+            _unitOfWork.Save();
+
             return View("Test");
 
-            //*Customer is not added on the UnitOfWork yet...
-
-
+// Add data validation:
 //          if (ModelState.IsValid)
 //          {
 //              return RedirectToRoute("order");   // the customer id as a parameter.
 //          }
 // 
-//             //*https://techfunda.com/howto/235/redirect-user-to-another-route-url
-// 
 //             return View("CustomerInfo");
-          
 
         }
     }
 }
+
+
+//             //*https://techfunda.com/howto/235/redirect-user-to-another-route-url

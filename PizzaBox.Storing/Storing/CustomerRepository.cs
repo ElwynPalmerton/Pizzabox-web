@@ -5,6 +5,7 @@ using PizzaBox.Storing;
 using System.Linq;
 using System;
 using PizzaBox.Storage;
+using sc = System.Console;
 
 
 //Add the repositor reference.
@@ -30,9 +31,8 @@ namespace PizzaBox.Storing.Repositories
 
         public bool Insert(Customer newCustomer)
         {
-            //
             _context.Customers.Add(newCustomer);
-            throw new System.NotImplementedException();
+            return true;
         }
 
         public bool Insert()

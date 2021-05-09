@@ -11,17 +11,25 @@ namespace PizzaBox.Storage
         public DbSet<Size> Sizes {get; set;}
         public DbSet<Topping> Toppings {get; set;}
         public DbSet<Customer> Customers {get; set;}
+
+        public DbSet<APizza> Pizzas {get; set;}
         public PizzaBoxContext(DbContextOptions options) : base(options)
         {
                 
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //Toppings
             builder.Entity<Crust>().HasKey(e => e.EntityId);
             builder.Entity<Size>().HasKey(e => e.EntityId);
             builder.Entity<Topping>().HasKey(e => e.EntityId);
+            
+            //Customer
             builder.Entity<Customer>().HasKey(e => e.EntityId);
-            // builder.Entity<APizza>().HasKey(e => e.EntityId);
+            //Pizzas
+            builder.Entity<APizza>().HasKey(e => e.EntityId);
+            builder.Entity<CustomPizza>().HasBaseType<APizza>();
+
             
             OnModelSeeding(builder);
         }
@@ -35,6 +43,12 @@ namespace PizzaBox.Storage
                     Name = "Uncle John",
                     Address = "100 Uncle John Street",
                     PhoneNumber = "888-888-JOHN"
+                },
+                new Customer(){
+                    EntityId = 2,
+                    Name="Dan",
+                    PhoneNumber="123-432-2342",
+                    Address="123 Street"
                 }
             });
 
@@ -91,7 +105,11 @@ namespace PizzaBox.Storage
                     EntityId=9,
                     Name="Sausage",
                 },  
-             });
+            });
+
+
+
+
         }
     }
 }

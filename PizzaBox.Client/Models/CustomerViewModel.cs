@@ -9,7 +9,7 @@ using System.Text;
 
 namespace PizzaBox.Client.Models
 {
-    public class CustomerViewModel : IValidatableObject
+    public class CustomerViewModel //: IValidatableObject
     {
         [Required]
         public string CustomerName {get; set;}
@@ -27,22 +27,22 @@ namespace PizzaBox.Client.Models
         //     Toppings = unitOfWork.Toppings.Select(c => !string.IsNullOrWhiteSpace(c.Name)).ToList();
         // }
 
-        public string CustomerToString()
+        public override string ToString()
         {
             return $"{CustomerName} {PhoneNumber} {Address}";
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        {
-           //Create instance of collection.
-            if (false)
-            {
-                yield return new ValidationResult("are you crazy!", new string[] {
-                    "SelectedCrust",
-                    "SelectedCrustSize"
-                });
-            }
-            // Return instance of collection.
-        }
+        // public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        // {
+        //    //Create instance of collection.
+        //     if (false)
+        //     {
+        //         yield return new ValidationResult("are you crazy!", new string[] {
+        //             "SelectedCrust",
+        //             "SelectedCrustSize"
+        //         });
+        //     }
+        //     // Return instance of collection.
+        // }
     }
 }

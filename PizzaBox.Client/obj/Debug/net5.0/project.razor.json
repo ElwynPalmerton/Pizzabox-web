@@ -15664,6 +15664,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/ChoosePizza.cshtml",
+      "TargetPath": "Views\\Shared\\ChoosePizza.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/Cart.cshtml",
       "TargetPath": "Views\\Shared\\Cart.cshtml",
       "FileKind": "mvc"
@@ -15701,6 +15706,11 @@
     {
       "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/Views/Shared/FindCustomer.cshtml",
+      "TargetPath": "Views\\Shared\\FindCustomer.cshtml",
       "FileKind": "mvc"
     }
   ],

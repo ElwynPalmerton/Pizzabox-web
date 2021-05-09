@@ -17,17 +17,13 @@ namespace PizzaBox.Client.Controllers
 
         public OrderController(UnitOfWork unitOfWork)
         {
-            //FB: The runtime controls the instance of UnitOfWork.
-            //The environment where OrderController is running.
-            //Dependency Injection - an implementation of the D in SOLID which is Dependency inversion.
-            // _logger = logger;
             _unitOfWork = unitOfWork;
         }
-
 
         [HttpGet]
         public IActionResult Index ()
         {
+
             var order = new OrderViewModel();
 
             order.Load(_unitOfWork);
@@ -37,28 +33,53 @@ namespace PizzaBox.Client.Controllers
         [HttpPost]
         // [ValidateAntiForgeryToken]
         public IActionResult Create (OrderViewModel order)  
-        {   //The form as posted is "Model Bound to the OrderViewModel order"
+        {   
+            sc.WriteLine("Selected: " + order.SelectionsToString());
+            //SelectedCrust
+            //SelectedSize
+            //SelectedToppings
+        
+            
 
-        sc.WriteLine("Selected: " + order.SelectionsToString());
 
-            if (ModelState.IsValid)
-            {
+            // if (ModelState.IsValid)
+            // {
 
-//                 var crust = _unitOfWork.Crusts.Select(c => c.Name == order.SelectedCrust).First();
-//                 var size = _unitOfWork.Sizes.Select(c => c.Name == order.SelectedSize).First();
+                var crust = _unitOfWork.Crusts.Select(c => c.Name == order.SelectedCrust).First();
+                var size = _unitOfWork.Sizes.Select(c => c.Name == order.SelectedSize).First();
+   
+                sc.WriteLine("Crust: " + crust.EntityId);
+                sc.WriteLine("Size: " + size.EntityId);
+
+                var toppings = new List<Topping>();
+ 
+                foreach (var item in order.SelectedToppings)
+                {
+                    sc.WriteLine("Topping: " + item.ToString());
+              
+                    var newTop = _unitOfWork.Toppings.Select(c => c.Name == item.ToString()).First();
+                    sc.WriteLine("Topping: " + newTop.EntityId);
+                    
+                    toppings.Add(newTop);
+                }
 // 
-//                 var toppings = new List<Topping>();
-//  
-//                 foreach (var item in order.SelectedToppings)
-//                 {
-//                     var newTops = _unitOfWork.Toppings.Select(c => c.Name == item).First();
-//                     toppings.Add(newTop);
-//                 }
-// 
-//                 var newPizza = new CustomPizza{Crust = crust, Size = size, Toppings = toppings};
-//                 //*The Pizzas are all commented out, entirely.
-//                 
-//                 var newOrder = new Order {Pizzas = new List<Pizza> {newPizza}};  
+                var newPizza = new CustomPizza()
+                {
+                    Crust = crust, 
+                    Size = size, 
+                    Toppings = toppings
+                };
+
+                _unitOfWork.Pizzas.Insert(newPizza);
+                _unitOfWork.Save();
+
+                sc.WriteLine(newPizza.ToString());
+
+
+
+
+
+                // var newOrder = new Order {Pizzas = new List<Pizza> {newPizza}};  
 //                 //*Order exists but does not have any fields or properties yet.
 //                 
 // 
@@ -72,14 +93,18 @@ namespace PizzaBox.Client.Controllers
                 return View("Test");
 
 
-            }  
-           
-        
-           
-            ViewBag.title = $"Selections: {order.SelectionsToString()}";
-            return View("Test");
+            // }  End of ModelState.IsValid block.
+            //Send the order view again if !ModelState.IsValid:
+            //return View("order");  //???
 
         }
     }
 }
 
+            //FB: The runtime controls the instance of UnitOfWork.
+            //The environment where OrderController is running.
+            //Dependency Injection - an implementation of the D in SOLID which is Dependency inversion.
+            // _logger = logger;
+
+            // in Create: 
+            //The form as posted is "Model Bound to the OrderViewModel order"

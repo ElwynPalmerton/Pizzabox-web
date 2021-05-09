@@ -85,3 +85,5 @@
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/Customer.cshtml.g.cs
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/StorePortal.cshtml.g.cs
 /Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Partials/_navbar.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/ChoosePizza.cshtml.g.cs
+/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/FindCustomer.cshtml.g.cs

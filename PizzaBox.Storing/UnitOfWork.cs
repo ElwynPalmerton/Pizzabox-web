@@ -8,13 +8,11 @@ namespace PizzaBox.Storage
     public class UnitOfWork
     {
         private PizzaBoxContext _context;
-        //Changed from readonly because readonly can 
-        //only be accessed in the constructor.
-
         public CrustRepository Crusts {get;}
         public SizeRepository Sizes {get;}
-
+        public CustomerRepository Customers {get;}
         public ToppingRepository Toppings {get; }
+        public PizzaRepository Pizzas {get;}
 
         public UnitOfWork(PizzaBoxContext context)
         {
@@ -23,8 +21,8 @@ namespace PizzaBox.Storage
             Crusts = new CrustRepository(context);
             Sizes = new SizeRepository(context);
             Toppings = new ToppingRepository(context);
-            // Customers = new CustomerRepository(context);
-
+            Customers = new CustomerRepository(context);
+            Pizzas = new PizzaRepository(context);
         }
 
         public void Save()

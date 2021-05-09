@@ -5,6 +5,7 @@ using PizzaBox.Storing;
 using System.Linq;
 using System;
 using PizzaBox.Storage;
+using sc = System.Console;
 
 
 //Add the repositor reference.
@@ -25,13 +26,28 @@ namespace PizzaBox.Storing.Repositories
            public IEnumerable<Crust> Select(Func<Crust, bool> filter)
         {
             return _context.Crusts.Where(filter);
-            //I need this in the other repositories too.
         }
 
         public bool Insert(Crust c)
         {
             throw new System.NotImplementedException();
         }
+
+        public bool Insert()
+        {
+        //This route is for modifying the existing presets.
+//             var thinCrust = new Crust()
+//             {
+//                 Name = "Thin",
+//             };
+// 
+//             sc.WriteLine("Saving Crust");
+//             _context.Crusts.Add(thinCrust);
+            return true;
+
+            // throw new System.NotImplementedException();
+        }
+
 
         public Crust Update()
         {
