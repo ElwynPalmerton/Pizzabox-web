@@ -22,18 +22,23 @@ namespace PizzaBox.Client.Controllers
         [HttpGet]
         public IActionResult Index ()
         {
+            var pizzas = new PizzaViewModel();
+            pizzas.Load();
+
             //See order Controller...?
-            return View("choosePizza");
+            return View("choosePizza", pizzas);
         }
 
         
         [HttpGet]
         [HttpPost]
         // [ValidateAntiForgeryToken]
-        public IActionResult Create ()   //CustomerViewModel order  
+        public IActionResult Create (PizzaViewModel pizzaType)   //CustomerViewModel order  
         {   //The form as posted is "Model Bound to the OrderViewModel order"
 
-            ViewBag.title = "ChoosePizzaController - Create / Post";
+            var pizza = pizzaType.SelectedPizzaType;
+
+            ViewBag.title = $"ChoosePizzaController - Create / Post {pizza}";
             return View("Test");
 //             if (ModelState.IsValid)
 //             {

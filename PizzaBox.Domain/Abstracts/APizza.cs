@@ -44,6 +44,11 @@ namespace PizzaBox.Domain.Abstracts{
 
 
 
+    public string MenuToString()
+    {
+        return $"{Name}";    
+    }  
+
     public override string ToString()
     {
         var stringBuilder = new StringBuilder();
@@ -54,7 +59,7 @@ namespace PizzaBox.Domain.Abstracts{
           stringBuilder.Append($"{item}{separator}");
         }
 
-        return $"{Crust}\t\t- {Size} \t\t- {stringBuilder.ToString().TrimEnd(separator.ToCharArray())} - $";    
+        return $"{Name} {Crust}\t\t- {Size} \t\t- {stringBuilder.ToString().TrimEnd(separator.ToCharArray())} - $";    
 
         // decimal price = this.ComputePrice();
         // I need to add the ComputPrice method here.

@@ -22,8 +22,10 @@ namespace PizzaBox.Client.Controllers
         [HttpGet]
         public IActionResult Index ()
         {
+            var stores = new StoreViewModel();
+            stores.Load(_unitOfWork);
             //See order Controller...?
-            return View("storeportal");
+            return View("storeportal", stores);
 
 
    

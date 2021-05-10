@@ -22,7 +22,7 @@ namespace PizzaBox.Client.Controllers
         [HttpGet]
         public IActionResult Index ()
         {
-            //See order Controller...?
+            var customer = new CustomerViewModel();
             return View("findcustomer");
         }
 
@@ -30,21 +30,22 @@ namespace PizzaBox.Client.Controllers
         [HttpGet]
         [HttpPost]
         // [ValidateAntiForgeryToken]
-        public IActionResult Create ()   //CustomerViewModel order  
-        {   //The form as posted is "Model Bound to the OrderViewModel order"
+        public IActionResult Create (CustomerViewModel customer)  
+        { 
 
-            ViewBag.title = "Find Customer Controller - Create / Post";
+            var foundCustomer = _unitOfWork.Customers.Select(c => c.Name == customer.CustomerName).FirstOrDefault();
+      
+            if (foundCustomer != null)
+            {
+                ViewBag.title = $"Find Customer - Found Customer: {foundCustomer.ToString()} ";
+            }
+            else
+            {
+                ViewBag.title = $"Find Customer route - Customer not Found";
+            }
+
             return View("Test");
-//             if (ModelState.IsValid)
-//             {
-//                  return RedirectToRoute("order");   // the customer id as a parameter.
-//             }
-// 
-//             //*https://techfunda.com/howto/235/redirect-user-to-another-route-url
-// 
-//             return View("CustomerInfo");
-          
-
+        
         }
     }
 }

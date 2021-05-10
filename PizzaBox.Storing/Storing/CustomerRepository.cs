@@ -23,9 +23,9 @@ namespace PizzaBox.Storing.Repositories
         {
             _context = context;
         }
-           public IEnumerable<Customer> Select(Func<Customer, bool> filter)
+        public IEnumerable<Customer> Select(Func<Customer, bool> filter)
         {
-            return _context.Customers.Where(filter);
+           return _context.Customers.Where(filter);
             //I need this in the other repositories too.
         }
 

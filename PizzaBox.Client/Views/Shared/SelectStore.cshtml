@@ -1,9 +1,22 @@
-<h2>From the Select Store view</h2>
+@model PizzaBox.Client.Models.StoreViewModel
 
+<div class="p-2"></div>
+<h2>Please Select a Store</h2>
+<div class="p-2"></div>
 
 <form action="/selectstore/create" method="post"> 
 
+    @foreach(var item in Model.Stores)
+    {
+        <label for="@item">@item</label>
+        @Html.RadioButtonFor(m => m.SelectedStore, @item);
+        
+    }
+    @* @Html.EditorFor(m => m.SelectedSize) <br /> *@
+    @Html.ValidationMessageFor(m => m.SelectedStore, "", new { @class = "text-danger" })
+    <div class="p-3"></div>
 
-    <button type="submit">Submit</button>
+
+    <div class="p-3"></div>
+    <button type="submit" class="btn btn-primary">Select Store</button>
 </form>
-

@@ -24,9 +24,8 @@ namespace PizzaBox.Storing.Repositories
             _context = context;
         }
 
-            public IEnumerable<Size> Select(Func<Size, bool> filter)
+        public IEnumerable<Size> Select(Func<Size, bool> filter)
         {   
-         
             return _context.Sizes.Where(filter);
         }
         public bool Insert(Size s)

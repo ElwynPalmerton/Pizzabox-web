@@ -20,6 +20,7 @@ namespace PizzaBox.Client.Models
         {
       
         };
+        public string Cow {get; set;}
 
         [Required(ErrorMessage = "select a crust")]
         // [DataType(DataType.Text)]

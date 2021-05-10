@@ -23,28 +23,22 @@ namespace PizzaBox.Client.Controllers
         [HttpGet]
         public IActionResult Index ()
         {
-
             var order = new OrderViewModel();
 
             order.Load(_unitOfWork);
+
             return View("order", order);
         }
+
 
         [HttpPost]
         // [ValidateAntiForgeryToken]
         public IActionResult Create (OrderViewModel order)  
         {   
             sc.WriteLine("Selected: " + order.SelectionsToString());
-            //SelectedCrust
-            //SelectedSize
-            //SelectedToppings
-        
-            
-
 
             // if (ModelState.IsValid)
             // {
-
                 var crust = _unitOfWork.Crusts.Select(c => c.Name == order.SelectedCrust).First();
                 var size = _unitOfWork.Sizes.Select(c => c.Name == order.SelectedSize).First();
    
@@ -62,6 +56,7 @@ namespace PizzaBox.Client.Controllers
                     
                     toppings.Add(newTop);
                 }
+
 // 
                 var newPizza = new CustomPizza()
                 {
@@ -74,9 +69,6 @@ namespace PizzaBox.Client.Controllers
                 _unitOfWork.Save();
 
                 sc.WriteLine(newPizza.ToString());
-
-
-
 
 
                 // var newOrder = new Order {Pizzas = new List<Pizza> {newPizza}};  
@@ -93,13 +85,15 @@ namespace PizzaBox.Client.Controllers
                 return View("Test");
 
 
+
             // }  End of ModelState.IsValid block.
+
             //Send the order view again if !ModelState.IsValid:
             //return View("order");  //???
-
         }
     }
 }
+
 
             //FB: The runtime controls the instance of UnitOfWork.
             //The environment where OrderController is running.

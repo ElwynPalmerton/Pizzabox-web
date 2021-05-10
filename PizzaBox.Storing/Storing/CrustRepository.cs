@@ -23,7 +23,7 @@ namespace PizzaBox.Storing.Repositories
         {
             _context = context;
         }
-           public IEnumerable<Crust> Select(Func<Crust, bool> filter)
+        public IEnumerable<Crust> Select(Func<Crust, bool> filter)
         {
             return _context.Crusts.Where(filter);
         }
@@ -36,13 +36,14 @@ namespace PizzaBox.Storing.Repositories
         public bool Insert()
         {
         //This route is for modifying the existing presets.
-//             var thinCrust = new Crust()
-//             {
-//                 Name = "Thin",
-//             };
-// 
-//             sc.WriteLine("Saving Crust");
-//             _context.Crusts.Add(thinCrust);
+            var thinCrust = new Crust()
+            {
+                Name = "Thin Style",
+                Price = 3.00M
+            };
+
+            sc.WriteLine("Saving Crust");
+            _context.Crusts.Add(thinCrust);
             return true;
 
             // throw new System.NotImplementedException();

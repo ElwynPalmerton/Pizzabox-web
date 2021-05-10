@@ -1,41 +1,41 @@
-using System;
-using System.Collections.Generic;
-using PizzaBox.Domain.Interfaces;
-using PizzaBox.Domain.Models;
-
-namespace PizzaBox.Storage.Repositories
-{
-    public class OrderRepository : IRepository<Order>
-    {
-        private readonly PizzaBoxContext _context;
-
-        public OrderRepository(PizzaBoxContext context)
-        {
-            _context = context;
-        }
-      
-        public IEnumerable<Order> Select(Func<Order, bool> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool Insert(Order o)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Order Update()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-}
-
+// using System;
+// using System.Collections.Generic;
+// using PizzaBox.Domain.Interfaces;
+// using PizzaBox.Domain.Models;
+// 
+// namespace PizzaBox.Storage.Repositories
+// {
+//     public class OrderRepository : IRepository<Order>
+//     {
+//         private readonly PizzaBoxContext _context;
+// 
+//         public OrderRepository(PizzaBoxContext context)
+//         {
+//             _context = context;
+//         }
+//       
+//         public IEnumerable<Order> Select(Func<Order, bool> filter)
+//         {
+//             throw new NotImplementedException();
+//         }
+// 
+//         public bool Delete()
+//         {
+//             throw new System.NotImplementedException();
+//         }
+// 
+//         public bool Insert(Order o)
+//         {
+//             throw new System.NotImplementedException();
+//         }
+// 
+//         public Order Update()
+//         {
+//             throw new System.NotImplementedException();
+//         }
+//     }
+// }
+// 
 
 
 // Couldn't find an installed template that matches the input, searching online for one that does...

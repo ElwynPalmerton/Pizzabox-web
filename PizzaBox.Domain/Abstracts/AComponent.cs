@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 using PizzaBox.Domain.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PizzaBox.Domain.Abstracts{
 
@@ -9,7 +10,8 @@ namespace PizzaBox.Domain.Abstracts{
   {
     public string Name {get; set;}
   
-    // public decimal Price {get; set;}
+    [Column(TypeName = "decimal(4, 2)")]
+    public decimal Price {get; set;}
 
     public override string ToString()
     {
@@ -22,7 +24,8 @@ namespace PizzaBox.Domain.Abstracts{
 
 
 
-    // public string MenuString()
-    // {
-    //   return $"{Name} - ${Price}";
-    // }
+
+// public string MenuString()
+// {
+//   return $"{Name} - ${Price}";
+// }

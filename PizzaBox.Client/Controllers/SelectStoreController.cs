@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Client.Models;
+using PizzaBox.Domain.Models;
 using sc = System.Console;
 using PizzaBox.Storage;
 using System.Linq;
+
+
 
 
 namespace PizzaBox.Client.Controllers
@@ -22,30 +25,25 @@ namespace PizzaBox.Client.Controllers
         [HttpGet]
         public IActionResult Index ()
         {
-            //See order Controller...?
-            return View("selectstore");
-
-
-   
+            var stores = new StoreViewModel();
+            stores.Load(_unitOfWork);
+            return View("selectstore", stores);
         }
 
         
         [HttpPost]
         // [ValidateAntiForgeryToken]
-        public IActionResult Create ()   //CustomerViewModel order  
-        {   //The form as posted is "Model Bound to the OrderViewModel order"
+        public IActionResult Create (StoreViewModel store)  
+        {
+            sc.WriteLine(store.SelectedStore.ToString());
 
-            ViewBag.title = "SelectStoreController - Create / Post";
+            ViewBag.title = $"SelectStoreController - Create / Post {store.SelectedStore.ToString()}";
             return View("Test");
 //             if (ModelState.IsValid)
 //             {
 //                  return RedirectToRoute("order");   // the customer id as a parameter.
 //             }
-// 
-//             //*https://techfunda.com/howto/235/redirect-user-to-another-route-url
-// 
 //             return View("CustomerInfo");
-          
 
         }
     }

@@ -1,7 +1,18 @@
-<h2>Find Customer</h2>
+<h2>Returning Customers</h2>
+<h3>Enter your name:</h3>
 
-@* <a href="checkout/create">checkout</a> *@
+@model PizzaBox.Client.Models.CustomerViewModel
+
+<div class="p-1"></div>
 
 <form action="/findcustomer/create" method="post"> 
-    <button type="submit">Find Customer</button>
+   <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+      @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" })
+          @* @Html.ValidationMessageFor(m => m.SelectedCrust, "", new { @class = "text-danger" }) *@
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+@* <a asp-controller="customer">Make an order - index.cshtml</a> *@

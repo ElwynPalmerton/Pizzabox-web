@@ -64,6 +64,27 @@ namespace PizzaBox.Storing.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("APizza");
                 });
 
+            modelBuilder.Entity("PizzaBox.Domain.Abstracts.AStore", b =>
+                {
+                    b.Property<long>("EntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EntityId");
+
+                    b.ToTable("Stores");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("AStore");
+                });
+
             modelBuilder.Entity("PizzaBox.Domain.Models.Crust", b =>
                 {
                     b.Property<long>("EntityId")
@@ -74,6 +95,9 @@ namespace PizzaBox.Storing.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(4,2)");
+
                     b.HasKey("EntityId");
 
                     b.ToTable("Crusts");
@@ -82,17 +106,20 @@ namespace PizzaBox.Storing.Migrations
                         new
                         {
                             EntityId = 1L,
-                            Name = "Thin"
+                            Name = "Thin",
+                            Price = 3.00m
                         },
                         new
                         {
                             EntityId = 2L,
-                            Name = "Thick"
+                            Name = "Thick",
+                            Price = 4.00m
                         },
                         new
                         {
                             EntityId = 3L,
-                            Name = "Stuffed"
+                            Name = "Stuffed",
+                            Price = 5.00m
                         });
                 });
 
@@ -143,6 +170,9 @@ namespace PizzaBox.Storing.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(4,2)");
+
                     b.HasKey("EntityId");
 
                     b.ToTable("Sizes");
@@ -151,17 +181,20 @@ namespace PizzaBox.Storing.Migrations
                         new
                         {
                             EntityId = 1L,
-                            Name = "Small"
+                            Name = "Small",
+                            Price = 5.00m
                         },
                         new
                         {
                             EntityId = 2L,
-                            Name = "Medium"
+                            Name = "Medium",
+                            Price = 10.00m
                         },
                         new
                         {
                             EntityId = 3L,
-                            Name = "Large"
+                            Name = "Large",
+                            Price = 15.00m
                         });
                 });
 
@@ -175,6 +208,9 @@ namespace PizzaBox.Storing.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(4,2)");
+
                     b.HasKey("EntityId");
 
                     b.ToTable("Toppings");
@@ -183,42 +219,50 @@ namespace PizzaBox.Storing.Migrations
                         new
                         {
                             EntityId = 1L,
-                            Name = "Pepperoni"
+                            Name = "Pepperoni",
+                            Price = 5.00m
                         },
                         new
                         {
                             EntityId = 2L,
-                            Name = "Peppers"
+                            Name = "Peppers",
+                            Price = 3.00m
                         },
                         new
                         {
                             EntityId = 3L,
-                            Name = "Spinach"
+                            Name = "Spinach",
+                            Price = 4.00m
                         },
                         new
                         {
                             EntityId = 4L,
-                            Name = "Anchovies"
+                            Name = "Anchovies",
+                            Price = 6.00m
                         },
                         new
                         {
                             EntityId = 5L,
-                            Name = "Pineapple"
+                            Name = "Pineapple",
+                            Price = 4.00m
                         },
                         new
                         {
                             EntityId = 7L,
-                            Name = "Ham"
+                            Name = "Ham",
+                            Price = 5.00m
                         },
                         new
                         {
                             EntityId = 8L,
-                            Name = "Mushrooms"
+                            Name = "Mushrooms",
+                            Price = 2.00m
                         },
                         new
                         {
                             EntityId = 9L,
-                            Name = "Sausage"
+                            Name = "Sausage",
+                            Price = 4.00m
                         });
                 });
 
@@ -227,6 +271,48 @@ namespace PizzaBox.Storing.Migrations
                     b.HasBaseType("PizzaBox.Domain.Abstracts.APizza");
 
                     b.HasDiscriminator().HasValue("CustomPizza");
+                });
+
+            modelBuilder.Entity("PizzaBox.Domain.Models.MeatPizza", b =>
+                {
+                    b.HasBaseType("PizzaBox.Domain.Abstracts.APizza");
+
+                    b.HasDiscriminator().HasValue("MeatPizza");
+                });
+
+            modelBuilder.Entity("PizzaBox.Domain.Models.VeggiePizza", b =>
+                {
+                    b.HasBaseType("PizzaBox.Domain.Abstracts.APizza");
+
+                    b.HasDiscriminator().HasValue("VeggiePizza");
+                });
+
+            modelBuilder.Entity("PizzaBox.Domain.Models.ChicagoStore", b =>
+                {
+                    b.HasBaseType("PizzaBox.Domain.Abstracts.AStore");
+
+                    b.HasDiscriminator().HasValue("ChicagoStore");
+
+                    b.HasData(
+                        new
+                        {
+                            EntityId = 1L,
+                            Name = "Chitown Main Street"
+                        });
+                });
+
+            modelBuilder.Entity("PizzaBox.Domain.Models.NewYorkStore", b =>
+                {
+                    b.HasBaseType("PizzaBox.Domain.Abstracts.AStore");
+
+                    b.HasDiscriminator().HasValue("NewYorkStore");
+
+                    b.HasData(
+                        new
+                        {
+                            EntityId = 2L,
+                            Name = "Big Apple"
+                        });
                 });
 
             modelBuilder.Entity("APizzaTopping", b =>
