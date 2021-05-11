@@ -7,11 +7,6 @@ using PizzaBox.Storage;
 using System;
 using PizzaBox.Domain.Abstracts;
 using sc = System.Console;
-// using PizzaBox.Domain.Models;
-
-
-
-//Add the repositor reference.
 
 namespace PizzaBox.Storing.Repositories
 {
@@ -26,10 +21,8 @@ namespace PizzaBox.Storing.Repositories
 
         public bool Insert(APizza newPizza)
         {
-            sc.WriteLine("Saving Pizza");
             _context.Pizzas.Add(newPizza);
             return true;
-            // throw new System.NotImplementedException();
         }
 
         public bool Delete()

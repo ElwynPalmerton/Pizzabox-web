@@ -43,6 +43,11 @@ namespace PizzaBox.Storing.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public static implicit operator StoreRepository(OrderRepository v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

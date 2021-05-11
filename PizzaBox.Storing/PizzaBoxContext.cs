@@ -13,6 +13,8 @@ namespace PizzaBox.Storage
         public DbSet<APizza> Pizzas {get; set;}
         public DbSet<AStore> Stores {get; set;}
 
+        public DbSet<Order> Orders {get; set;}
+
         public PizzaBoxContext(DbContextOptions options) : base(options)
         {
     
@@ -37,6 +39,9 @@ namespace PizzaBox.Storage
             builder.Entity<AStore>().HasKey(e => e.EntityId);
             builder.Entity<ChicagoStore>().HasBaseType<AStore>();
             builder.Entity<NewYorkStore>().HasBaseType<AStore>();
+
+            //Order
+            builder.Entity<Order>().HasKey(e => e.EntityId);
             
             OnModelSeeding(builder);
         }

@@ -16,11 +16,9 @@ namespace PizzaBox.Client.Controllers
             _logger = logger;
         }
 
-
         [HttpGet]
         public string Index (OrderViewModel order)
         {
-            sc.WriteLine("hello from user controller");
             return "Hello";
         }
     }

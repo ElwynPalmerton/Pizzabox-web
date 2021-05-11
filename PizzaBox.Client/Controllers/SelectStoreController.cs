@@ -5,12 +5,8 @@ using sc = System.Console;
 using PizzaBox.Storage;
 using System.Linq;
 
-
-
-
 namespace PizzaBox.Client.Controllers
 {
-
     [Route("[controller]/[action]")]
     public class SelectStoreController : Controller
     {
@@ -21,7 +17,6 @@ namespace PizzaBox.Client.Controllers
             _unitOfWork = unitOfWork;
         }
 
-
         [HttpGet]
         public IActionResult Index ()
         {
@@ -29,22 +24,12 @@ namespace PizzaBox.Client.Controllers
             stores.Load(_unitOfWork);
             return View("selectstore", stores);
         }
-
         
         [HttpPost]
-        // [ValidateAntiForgeryToken]
         public IActionResult Create (StoreViewModel store)  
         {
-            sc.WriteLine(store.SelectedStore.ToString());
-
             ViewBag.title = $"SelectStoreController - Create / Post {store.SelectedStore.ToString()}";
             return View("Test");
-//             if (ModelState.IsValid)
-//             {
-//                  return RedirectToRoute("order");   // the customer id as a parameter.
-//             }
-//             return View("CustomerInfo");
-
         }
     }
 }

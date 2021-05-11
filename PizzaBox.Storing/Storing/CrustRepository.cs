@@ -7,16 +7,10 @@ using System;
 using PizzaBox.Storage;
 using sc = System.Console;
 
-
-//Add the repositor reference.
-
 namespace PizzaBox.Storing.Repositories
 {
     public class CrustRepository : IRepository<Crust>
     {
-        // private readonly FileRepository _fileRepository = new FileRepository();
-        // private const string _path = @"data/pizzas.xml";
-
         private readonly PizzaBoxContext _context;
 
         public CrustRepository(PizzaBoxContext context)    //Need to fix up the PizzaBoxContext.
@@ -35,20 +29,15 @@ namespace PizzaBox.Storing.Repositories
 
         public bool Insert()
         {
-        //This route is for modifying the existing presets.
             var thinCrust = new Crust()
             {
                 Name = "Thin Style",
                 Price = 3.00M
             };
 
-            sc.WriteLine("Saving Crust");
             _context.Crusts.Add(thinCrust);
             return true;
-
-            // throw new System.NotImplementedException();
         }
-
 
         public Crust Update()
         {

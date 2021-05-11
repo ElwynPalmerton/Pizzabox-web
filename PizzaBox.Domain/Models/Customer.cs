@@ -14,7 +14,6 @@ namespace PizzaBox.Domain.Models
 
         public Customer(string name, string address, string phoneNumber)
         {
-            // this.GetName();
             this.Name = name;
             this.Address = address;
             this.PhoneNumber = phoneNumber;
@@ -22,12 +21,9 @@ namespace PizzaBox.Domain.Models
 
         public Customer()
         {
-
         }
-
         public void GetCustomerInfo()
         {
-
         }
 
         public override string ToString()

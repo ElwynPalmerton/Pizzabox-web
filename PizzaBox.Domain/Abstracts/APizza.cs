@@ -23,12 +23,10 @@ namespace PizzaBox.Domain.Abstracts{
 
     [Column(TypeName = "decimal(4, 2)")]
     public decimal Price {get; set;}
-
     protected APizza()
     {
       Factory();
     }
-
     protected void Factory()
     {
       AddName();
@@ -41,8 +39,6 @@ namespace PizzaBox.Domain.Abstracts{
     protected abstract void AddCrust();
     protected abstract void AddSize();
     protected abstract void AddToppings();
-
-
 
     public string MenuToString()
     {
@@ -60,9 +56,6 @@ namespace PizzaBox.Domain.Abstracts{
         }
 
         return $"{Name} {Crust}\t\t- {Size} \t\t- {stringBuilder.ToString().TrimEnd(separator.ToCharArray())} - $";    
-
-        // decimal price = this.ComputePrice();
-        // I need to add the ComputPrice method here.
     }  
   }
 }

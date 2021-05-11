@@ -4,10 +4,8 @@ using sc = System.Console;
 using PizzaBox.Storage;
 using System.Linq;
 
-
 namespace PizzaBox.Client.Controllers
 {
-
     [Route("[controller]/[action]")]
     public class CheckoutController : Controller
     {
@@ -21,29 +19,16 @@ namespace PizzaBox.Client.Controllers
         [HttpGet]
         public IActionResult Index ()
         {
-            //See order Controller...?
             return View("checkout");
         }
-
         
         [HttpGet]
         [HttpPost]
-        // [ValidateAntiForgeryToken]
         public IActionResult Create ()   
         {   
-
             ViewBag.title = "CheckoutController - Create / Post";
             
             return View("Test");
-
-//             if (ModelState.IsValid)
-//             {
-//                  return RedirectToRoute("order");   // the customer id as a parameter.
-//             }
-// 
-//             return View("CustomerInfo");
-          
-
         }
     }
 }

@@ -1,11 +1,33 @@
 @model PizzaBox.Client.Models.OrderViewModel
 
-<div class="p-2"></div>
+<div class="p-4"></div>
 <h2>Please Make an Order</h2>
 <div class="p-2"></div>
 
 <form action="/order/create" method="post"> 
 
+    <h3>Customer Info</h3>
+    @* Customer Info  *@
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+      @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" })
+          @* @Html.ValidationMessageFor(m => m.SelectedCrust, "", new { @class = "text-danger" }) *@
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Phone Number</span>
+      @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+    </div>
+
+     <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+      @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+    </div>
+
+    <div class="p-7"></div>
+    <h3>Select Your Pizza</h3>
+    <div class="p-1"></div>
+    @* Order the pizza  *@
     @foreach(var item in Model.Sizes)
     {
         <label for="@item">@item</label>
@@ -37,6 +59,19 @@
     @* @Html.ValidationMessageFor(m => m.SelectedToppings, "", new { @class = "text-danger" }) *@
 
     <span asp-validation-for="SelectedToppings"></span>
+   
+    <div class="p-3"></div>
+
+     <h3>Which store are you near?</h3>
+    <div class="p-1"></div>
+
+    @foreach(var item in Model.Stores)
+    {
+        <label for="@item">@item</label>
+        @Html.RadioButtonFor(m => m.SelectedStore, @item);
+        
+    }
+
 
     <div class="p-3"></div>
     <button type="submit" class="btn btn-primary">Order Pizza</button>

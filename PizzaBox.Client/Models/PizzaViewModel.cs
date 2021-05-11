@@ -14,10 +14,10 @@ namespace PizzaBox.Client.Models
     {
         public List<APizza> PizzaTypes {get; set;}
         
-        [Required(ErrorMessage = "Select a Pizza Type")]
         public string SelectedPizzaType {get; set;}
+
+        public long orderNumber {get; set;}
         
-        // public void Load(UnitOfWork unitOfWork)
         public void Load()
         {
             PizzaTypes = new List<APizza>()
@@ -28,13 +28,8 @@ namespace PizzaBox.Client.Models
                 new VeggiePizza(){
                     Name="Veggie Lovers Pizza"
                 },
-                
             };
-
-
         }
-
-
 
         public override string ToString()
         {

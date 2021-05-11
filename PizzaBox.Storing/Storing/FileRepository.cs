@@ -20,7 +20,6 @@ namespace PizzaBox.Storing.Repositories
             }
         }
 
-
         public bool WriteToFile<T>(string path, T items) where T: class
         {
             try{
@@ -30,7 +29,6 @@ namespace PizzaBox.Storing.Repositories
                 return true;
             }
             catch (System.Exception e) {
-                sc.WriteLine("Throw exception: " + e);
                 return false;
             }
         }

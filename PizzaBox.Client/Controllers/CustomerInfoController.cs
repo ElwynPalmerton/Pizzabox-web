@@ -19,30 +19,16 @@ namespace PizzaBox.Client.Controllers
             _unitOfWork = unitOfWork;
         }
 
-
         [HttpGet]
         public IActionResult Index ()
         {
-
             var customer = new CustomerViewModel();
-
-//             order.Load(_unitOfWork);
-//             return View("order", order);
-            //See order Controller...?
             return View("Customer", customer);
-
-
         }
-
         
         [HttpPost]
-        // [ValidateAntiForgeryToken]
         public IActionResult Create (CustomerViewModel customer) 
         {
-            //Send the Customer to the Order Controller...?
-                //Just pass as an argument for now...?
-            //Add the data Validation.
-
             ViewBag.title = customer.ToString();
 
 
@@ -50,19 +36,18 @@ namespace PizzaBox.Client.Controllers
             _unitOfWork.Customers.Insert(newCustomer);
             _unitOfWork.Save();
 
-            return View("Test");
+            Order newOrder = new Order(){
+                Customer = newCustomer
+            };
 
-// Add data validation:
-//          if (ModelState.IsValid)
-//          {
-//              return RedirectToRoute("order");   // the customer id as a parameter.
-//          }
-// 
-//             return View("CustomerInfo");
+            _unitOfWork.Orders.Insert(newOrder);
+            _unitOfWork.Save();
 
+            return Redirect("/ChoosePizza/Index/" + newOrder.EntityId);
         }
     }
 }
 
 
-//             //*https://techfunda.com/howto/235/redirect-user-to-another-route-url
+
+

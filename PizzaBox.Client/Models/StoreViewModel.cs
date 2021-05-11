@@ -16,7 +16,6 @@ namespace PizzaBox.Client.Models
         {
         };
         
-        [Required(ErrorMessage = "Select a Store")]
         public string SelectedStore {get; set;}
         
         public void Load(UnitOfWork unitOfWork)

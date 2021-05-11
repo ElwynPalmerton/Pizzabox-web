@@ -4,7 +4,10 @@
 <h2>Which type of pizza would you like?</h2>
 <div class="p-2"></div>
 
-<form action="/choosepizza/create" method="post"> 
+
+
+@* <form action="/addspecialtypizza/index" method="post">  *@
+<form action="/AddSpecialtyPizza/Index" method="post"> 
 
     @foreach(var item in Model.PizzaTypes)
     {
@@ -12,6 +15,14 @@
         @Html.RadioButtonFor(m => m.SelectedPizzaType, @item.MenuToString());
     }
 
+    @Html.Hidden("orderNumber");
+    <h3>@Model.orderNumber</h3>
+
     <div class="p-3"></div>
-    <button type="submit" class="btn btn-primary">Select Store</button>
+    <button type="submit" class="btn btn-primary">Select Pizza Type</button>
 </form>
+
+@* 
+<div class="p-3"></div>
+    
+<button type="submit" class="btn btn-primary">Build a Custom Pizza</button> *@

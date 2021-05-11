@@ -4,7 +4,6 @@ using sc = System.Console;
 using PizzaBox.Storage;
 using System.Linq;
 
-
 namespace PizzaBox.Client.Controllers
 {
 
@@ -18,21 +17,17 @@ namespace PizzaBox.Client.Controllers
             _unitOfWork = unitOfWork;
         }
 
-
         [HttpGet]
         public IActionResult Index ()
         {
             var customer = new CustomerViewModel();
             return View("findcustomer");
         }
-
         
         [HttpGet]
         [HttpPost]
-        // [ValidateAntiForgeryToken]
         public IActionResult Create (CustomerViewModel customer)  
         { 
-
             var foundCustomer = _unitOfWork.Customers.Select(c => c.Name == customer.CustomerName).FirstOrDefault();
       
             if (foundCustomer != null)
@@ -45,7 +40,6 @@ namespace PizzaBox.Client.Controllers
             }
 
             return View("Test");
-        
         }
     }
 }

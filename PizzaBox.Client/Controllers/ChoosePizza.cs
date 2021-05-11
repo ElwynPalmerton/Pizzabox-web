@@ -7,8 +7,7 @@ using System.Linq;
 
 namespace PizzaBox.Client.Controllers
 {
-
-    [Route("[controller]/[action]")]
+    [Route("[controller]/[action]/{orderID}")]
     public class ChoosePizzaController : Controller
     {
         private readonly UnitOfWork _unitOfWork;
@@ -18,38 +17,15 @@ namespace PizzaBox.Client.Controllers
             _unitOfWork = unitOfWork;
         }
 
-
         [HttpGet]
-        public IActionResult Index ()
+        public IActionResult Index (int orderID)
         {
-            var pizzas = new PizzaViewModel();
+            var pizzas = new PizzaViewModel(){
+                orderNumber = orderID,
+            };
             pizzas.Load();
 
-            //See order Controller...?
             return View("choosePizza", pizzas);
-        }
-
-        
-        [HttpGet]
-        [HttpPost]
-        // [ValidateAntiForgeryToken]
-        public IActionResult Create (PizzaViewModel pizzaType)   //CustomerViewModel order  
-        {   //The form as posted is "Model Bound to the OrderViewModel order"
-
-            var pizza = pizzaType.SelectedPizzaType;
-
-            ViewBag.title = $"ChoosePizzaController - Create / Post {pizza}";
-            return View("Test");
-//             if (ModelState.IsValid)
-//             {
-//                  return RedirectToRoute("order");   // the customer id as a parameter.
-//             }
-// 
-//             //*https://techfunda.com/howto/235/redirect-user-to-another-route-url
-// 
-//             return View("CustomerInfo");
-          
-
         }
     }
 }

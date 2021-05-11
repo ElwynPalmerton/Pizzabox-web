@@ -17,7 +17,6 @@ namespace PizzaBox.Client
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
@@ -25,19 +24,9 @@ namespace PizzaBox.Client
             services.AddDbContext<PizzaBoxContext>(options => 
             {
                 options.UseSqlServer(Configuration.GetConnectionString("mssql"));
-                
-                // ^--The connection string is in the appsetting.json
-                //  ^-- This is the same code that we wrote in OnConfiguring 
-                // but now we are injecting the configuration instead.
-                // options .UseNpgsql("server=localhost;database=PizzaBoxDB;user id=postgres;password=postgres;");
-            //server=Localhost
-            //database=PizzaBoxDB
-            //user id=postgres
-            //password=postgres
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -47,7 +36,6 @@ namespace PizzaBox.Client
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             

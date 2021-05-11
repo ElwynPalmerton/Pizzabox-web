@@ -3,8 +3,14 @@ for details on configuring this project to bundle and minify static web assets. 
 
 #title {
   font-family: "Nosifer", cursive;
+  color: yellow;
+  text-align: center;
+  font-size: 50px;
 }
 
+nav {
+  height: 50px;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
