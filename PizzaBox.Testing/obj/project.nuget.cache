@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+9SIU9Hgie6GdgKjNevTdPkZiFTqi1udYJU4jmEhFGWrEWolRkrLqeo/YZjfnOG3Ud7fxzNUTyDsu9X8L5mM0Q==",
+  "dgSpecHash": "3COtWGfHcG3GyEC2u5Fgzein/KhamM+a9yErHd1vYLh3qUi5fTGNNS5sMguYwW7WfWN/kzjkqfD6PwOBADbsRw==",
   "success": true,
   "projectFilePath": "/Users/elwynpalmerton/revature/project-pizzabox-web/PizzaBox.Testing/PizzaBox.Testing.csproj",
   "expectedPackageFiles": [
     "/Users/elwynpalmerton/.nuget/packages/coverlet.collector/1.3.0/coverlet.collector.1.3.0.nupkg.sha512",
+    "/Users/elwynpalmerton/.nuget/packages/coverlet.msbuild/3.0.3/coverlet.msbuild.3.0.3.nupkg.sha512",
     "/Users/elwynpalmerton/.nuget/packages/microsoft.codecoverage/16.7.1/microsoft.codecoverage.16.7.1.nupkg.sha512",
     "/Users/elwynpalmerton/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/Users/elwynpalmerton/.nuget/packages/microsoft.data.sqlclient/2.0.1/microsoft.data.sqlclient.2.0.1.nupkg.sha512",

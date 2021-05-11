@@ -18,7 +18,6 @@ namespace PizzaBox.Storing.Repositories
 
         private readonly PizzaBoxContext _context;
 
-
         public SizeRepository(PizzaBoxContext context)
         {
             _context = context;

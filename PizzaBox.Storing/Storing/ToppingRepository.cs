@@ -23,7 +23,6 @@ namespace PizzaBox.Storing.Repositories
             _context = context;
         }
        
-        // public IEnumerable<Topping> Select(ToppingDelegate filter)
        public IEnumerable<Topping> Select(Func<Topping, bool> filter)
         {
             
@@ -46,7 +45,3 @@ namespace PizzaBox.Storing.Repositories
         }
     }
 }
-
-// 
-//         private readonly FileRepository _fileRepository = new FileRepository();
-//         private const string _path = @"data/pizzas.xml";

@@ -12,10 +12,9 @@ namespace PizzaBox.Storing.Repositories
     {
         private readonly PizzaBoxContext _context;
 
-
         public OrderRepository(PizzaBoxContext context)
         {
-                _context = context;
+            _context = context;
         }
         public bool Delete()
         {

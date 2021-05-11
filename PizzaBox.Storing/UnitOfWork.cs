@@ -2,9 +2,6 @@ using PizzaBox.Storing.Repositories;
 
 namespace PizzaBox.Storage
 {
-
-    
-    // Predefined type 'System.Object' is not defined or imported 
     public class UnitOfWork
     {
         private PizzaBoxContext _context;
