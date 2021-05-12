@@ -4,12 +4,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: dotnet build
+
 name: ci-pipeline
 
-on: push
-# macOS Catalina Version 10.15.7
-# macOS-latest OR macOS-10.15
+test:
+  runs-on: ubuntu-20.04
+  steps:
+    - uses: actions/checkout@v2
+    - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=./test_coverage/ -l trx -r ./test_result/
 
-# test: xunit
-# Analyze: Sonarcloud
-# Connect your project to Sonarcloud.
+on: push
