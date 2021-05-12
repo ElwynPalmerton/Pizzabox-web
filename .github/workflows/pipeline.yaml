@@ -12,6 +12,9 @@ jobs:
       - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=./test_coverage/ -l trx -o 'test_results'
 
   analyze:
+    need:
+      - build
+      - test
     env:
       SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
