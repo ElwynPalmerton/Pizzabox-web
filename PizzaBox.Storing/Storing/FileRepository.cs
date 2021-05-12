@@ -19,7 +19,10 @@ namespace PizzaBox.Storing.Repositories
                 return null;
             }
         }
-
+        /// <summary>
+        /// ///
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
         public bool WriteToFile<T>(string path, T items) where T: class
         {
             try{
