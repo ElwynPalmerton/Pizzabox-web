@@ -25,6 +25,7 @@ jobs:
   #     - run: dotnet sonarscanner begin -k:'elwynpalmerton' -o:'ElwynPalmerton' -d:sonar.login=${{secrets.SONAR_TOKEN}} -d:sonar.url="https://sonarcloud.io"
   #     - run: dotnet build
   #     - run: dotnet sonarscanner end -d.sonar.login=${{secrets.SONAR_TOKEN}}
+  # try again
 
   package:
     env:
