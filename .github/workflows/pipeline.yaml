@@ -12,7 +12,7 @@ jobs:
       - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=./test_coverage/ -l trx -o 'test_results'
 
   analyze:
-    need:
+    needs:
       - build
       - test
     env:
