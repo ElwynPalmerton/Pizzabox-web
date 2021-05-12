@@ -1,12 +1,12 @@
 jobs:
   build:
-    runs-on: macOS-10.15
+    runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
       - run: dotnet build
 
   test:
-    runs-on: macOS-10.15
+    runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
       - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=./test_coverage/ -l trx -o 'test_results'
@@ -18,11 +18,11 @@ jobs:
     env:
       SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    runs-on: macOS-10.15
+    runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
       - run: dotnet tool install -g dotnet-sonarscanner
-      - run: dotnet sonarscanner begin -k:'elwynpalmerton' -o:'ElwynPalmerton' -d.sonar.login=${{secrets.SONAR_TOKEN}} -d.sonar.url="https://sonarcloud.io"
+      - run: dotnet sonarscanner begin -k:'elwynpalmerton' -o:'ElwynPalmerton' -d:sonar.login=${{secrets.SONAR_TOKEN}} -d:sonar.url="https://sonarcloud.io"
       - run: dotnet build
       - run: dotnet sonarscanner end -d.sonar.login=$SONAR_TOKEN
 
