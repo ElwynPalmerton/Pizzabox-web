@@ -11,29 +11,29 @@ jobs:
       - uses: actions/checkout@v2
       - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=./test_coverage/ -l trx -o 'test_results'
 
-  analyze:
-    needs:
-      - build
-      - test
-    env:
-      SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    runs-on: macos-10.15
-    steps:
-      - uses: actions/checkout@v2
-      - run: dotnet tool install -g dotnet-sonarscanner
-      - run: dotnet sonarscanner begin -k:'elwynpalmerton' -o:'ElwynPalmerton' -d:sonar.login=${{secrets.SONAR_TOKEN}} -d:sonar.url="https://sonarcloud.io"
-      - run: dotnet build
-      - run: dotnet sonarscanner end -d.sonar.login=${{secrets.SONAR_TOKEN}}
+  # analyze:
+  #   needs:
+  #     - build
+  #     - test
+  #   env:
+  #     SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #   runs-on: macos-10.15
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - run: dotnet tool install -g dotnet-sonarscanner
+  #     - run: dotnet sonarscanner begin -k:'elwynpalmerton' -o:'ElwynPalmerton' -d:sonar.login=${{secrets.SONAR_TOKEN}} -d:sonar.url="https://sonarcloud.io"
+  #     - run: dotnet build
+  #     - run: dotnet sonarscanner end -d.sonar.login=${{secrets.SONAR_TOKEN}}
 
   package:
     runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
       - run: docker image build -f Dockerfile -t project-pizzabox-web .
-      - run: docker image tag pizzabox elwynpalmerton/Pizzabox-web
+      - run: docker image tag pizzabox elwynpalmerton/pizzabox
       - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
-      - run: docker push ElwynPalmerton/Pizzabox-web
+      - run: docker push elwynPalmerton/pizzabox
       - run: docker logout
 
   # deploy:
