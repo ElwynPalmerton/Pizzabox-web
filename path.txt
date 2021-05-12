@@ -1,0 +1,1 @@
+/Users/elwynpalmerton/.nvm/versions/node/v12.18.4/bin:/Users/elwynpalmerton/.yarni/bin:/Users/elwynpalmerton/.config/yarn/global/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/elwynpalmerton/.dotnet/tools
