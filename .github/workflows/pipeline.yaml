@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker image build -f Dockerfile -t project-pizzabox-web .
-      - run: docker image tag pizzabox elwynpalmerton/pizzabox
+      - run: docker image tag project-pizzabox-web elwynpalmerton/pizzabox
       - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
       - run: docker push elwynpalmerton/pizzabox
       - run: docker logout
