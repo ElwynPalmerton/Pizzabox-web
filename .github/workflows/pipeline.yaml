@@ -30,7 +30,7 @@ jobs:
     runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
-      - run: docker image build -f Dockerfile -t pizzabox .
+      - run: docker image build -f Dockerfile -t project-pizzabox-web .
       - run: docker image tag pizzabox elwynpalmerton/pizzabox
       - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
       - run: docker push elwynpalmerton/pizzabox
