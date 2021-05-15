@@ -75,7 +75,9 @@ namespace PizzaBox.Client.Controllers
             _unitOfWork.Orders.Insert(newOrder);
             _unitOfWork.Save();
             
-            ViewBag.title = $"Valid Selections: {order.SelectionsToString()}";
+            ViewBag.store = $"Store: {store.Name}";
+            ViewBag.title = $"Pizza: {order.SelectionsToString()}";
+            ViewBag.customer = $"Customer: {newCustomer.Name}";
             
             return View("Test");
         }
