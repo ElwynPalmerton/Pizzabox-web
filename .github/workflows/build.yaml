@@ -27,6 +27,9 @@ jobs:
   #     - run: dotnet sonarscanner end -d:sonar.login="${{secrets.SONAR_TOKEN}}"
 
   package:
+    needs:
+      - build
+      - test
     env:
       DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
       DOCKER_USER: ${{secrets.DOCKER_USER}}
