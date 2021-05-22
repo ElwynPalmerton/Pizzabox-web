@@ -28,21 +28,21 @@ jobs:
       - run: dotnet build
       - run: dotnet sonarscanner end -d:sonar.login="${{secrets.SONAR_TOKEN}}"
 
-  # package:
-  #   needs:
-  #     - build
-  #     - test
-  #   env:
-  #     DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
-  #     DOCKER_USER: ${{secrets.DOCKER_USER}}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - run: docker image build -f Dockerfile -t project-pizzabox-web .
-  #     - run: docker image tag project-pizzabox-web elwynpalmerton/pizzabox
-  #     - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
-  #     - run: docker push elwynpalmerton/pizzabox
-  #     - run: docker logout
+  package:
+    needs:
+      - build
+      - test
+    env:
+      DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
+      DOCKER_USER: ${{secrets.DOCKER_USER}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker image build -f Dockerfile -t pizzabox .
+      - run: docker image tag pizzabox elwynpalmerton/pizzabox
+      - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
+      - run: docker push elwynpalmerton/pizzabox
+      - run: docker logout
 
   # deploy:
   #   needs:
