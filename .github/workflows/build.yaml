@@ -44,18 +44,18 @@ jobs:
       - run: docker push elwynpalmerton/pizzabox
       - run: docker logout
 
-  # deploy:
-  #   needs:
-  #     - package
-  #   runs-on: macos-10.15
-  #   steps:
-  #     - uses: azure/login@v1
-  #       with:
-  #         creds: ${{ secrets.AZURE_CREDENTIALS }}
-  #     - uses: azure/webapps-deploy@v2
-  #       with:
-  #         app-name: pizzaboxdemo
-  #         images: fredbelotte/pizzabox
+  deploy:
+    needs:
+      - package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: pizzabox-webapp
+          images: elwynpalmerton/pizzabox
 
 name: ci-pipeline
 
